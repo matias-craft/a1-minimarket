@@ -1,19 +1,21 @@
 :root {
-  --bg-rgb: 10, 7, 4;
-  --bg: #0a0704;
-  --bg2: #130d08;
-  --bg3: #1c140c;
-  --surface: #221710;
-  --surface2: #2e1f14;
-  --border: rgba(194, 138, 60, 0.14);
-  --border-h: rgba(194, 138, 60, 0.4);
-  --gold: #c8883c;
-  --gold-lt: #dfaa5a;
-  --gold-glow: rgba(200, 136, 60, 0.22);
-  --text: #ede0cc;
-  --text-dim: #7a6448;
-  --text-muted: #4a3c2c;
-  --red: #b03020;
+  /* Rich, warm dark mode (reduces OLED glare/haloing) */
+  --bg-rgb: 20, 18, 16;
+  --bg: #141210;
+  --bg2: #1e1b18;
+  --bg3: #2a2521;
+  --surface: #24201c;
+  --surface2: #322d28;
+  --border: rgba(200, 150, 80, 0.15);
+  --border-h: rgba(200, 150, 80, 0.35);
+  --gold: #d49b55;
+  --gold-lt: #eabb78;
+  --gold-glow: rgba(212, 155, 85, 0.2);
+  --text: #f2eadf;
+  --text-dim: #9b8d7c;
+  --text-muted: #685c50;
+  --red: #c94c3c;
+  /* Nav height and fonts stay same */
   --nav-h: 72px;
   --ff-d: "Cormorant Garamond", "Georgia", serif;
   --ff-b: "DM Sans", system-ui, sans-serif;
@@ -22,20 +24,21 @@
 }
 
 [data-theme="light"] {
-  --bg-rgb: 253, 251, 247;
-  --bg: #fdfbf7;
-  --bg2: #f4efe6;
-  --bg3: #eae1d1;
-  --surface: #ffffff;
-  --surface2: #f8f6f0;
-  --border: rgba(200, 136, 60, 0.3);
-  --border-h: rgba(200, 136, 60, 0.6);
-  --gold: #b26c1f;
-  --gold-lt: #c8883c;
-  --gold-glow: rgba(178, 108, 31, 0.22);
-  --text: #2a2218;
-  --text-dim: #5c4e3a;
-  --text-muted: #8c7a61;
+  /* Sophisticated, muted light mode (parchment/oatmeal to reduce brightness) */
+  --bg-rgb: 245, 242, 235;
+  --bg: #f5f2eb;
+  --bg2: #ebe6dc;
+  --bg3: #e1dbcf;
+  --surface: #fcfaf7;
+  --surface2: #f0ebd9;
+  --border: rgba(145, 108, 60, 0.22);
+  --border-h: rgba(145, 108, 60, 0.45);
+  --gold: #9b621e;
+  --gold-lt: #b87b2e;
+  --gold-glow: rgba(155, 98, 30, 0.12);
+  --text: #3a3126;
+  --text-dim: #6b5e4c;
+  --text-muted: #938673;
 }
 *,
 *::before,
