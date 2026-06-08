@@ -28,6 +28,7 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   font-family: var(--ff-b);
@@ -36,6 +37,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 img {
@@ -441,10 +443,22 @@ footer {
 }
 
 /* ============================================
+   OVERFLOW & ZOOM FIX — prevents mobile zoom-out
+   ============================================ */
+
+/* Images and media should never exceed their container */
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+}
+
+/* ============================================
    MOBILE RESPONSIVE FIXES
    ============================================ */
 
-/* Reveal animation — disable on mobile to avoid flicker */
+/* Reveal animation — disable on mobile to avoid invisible content */
 @media (max-width: 768px) {
   .reveal {
     opacity: 1 !important;
