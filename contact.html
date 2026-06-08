@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A1 Mini Market | Visit Us — Winnipeg</title>
+    <meta
+      name="description"
+      content="Find A1 Mini Market at 2835 Pembina Hwy, Unit 5, Winnipeg MB. Open Mon–Sat 10am–8pm and Sunday 10am–7pm. Call (204) 555-0198." />
+    <link rel="stylesheet" href="styles/main.css" />
+    <style>
+      /* Page-specific */
+      .visit-hero {
+        position: relative;
+        overflow: hidden;
+        height: clamp(380px, 50vw, 580px);
+        margin-top: var(--nav-h);
+      }
+      .visit-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 45%;
+        animation: hero-zoom 14s ease-out forwards;
+      }
+      .visit-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(10, 7, 4, 0.25) 0%,
+          rgba(10, 7, 4, 0.55) 50%,
+          rgba(10, 7, 4, 0.93) 100%
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(3rem, 5vw, 5rem);
+      }
+      .visit-hero-text {
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+        animation: fade-up 0.9s var(--ease) 0.2s both;
+      }
+      .visit-hero-text .eyebrow {
+        margin-bottom: 1rem;
+      }
+      .visit-hero-text h1 {
+        font-family: var(--ff-d);
+        font-size: clamp(3rem, 9vw, 7rem);
+        font-weight: 300;
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+      .visit-hero-text h1 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+
+      /* Main content layout */
+      .visit-body {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .visit-info {
+        padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4.5rem);
+        border-right: 1px solid var(--border);
+      }
+      .visit-photo {
+        position: relative;
+        overflow: hidden;
+        min-height: 500px;
+      }
+      .visit-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s var(--ease);
+      }
+      .visit-photo:hover img {
+        transform: scale(1.04);
+      }
+      .visit-photo-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(10, 7, 4, 0.35) 0%,
+          transparent 60%
+        );
+      }
+      .visit-photo-badge {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+        background: rgba(10, 7, 4, 0.82);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--border-h);
+        border-radius: 10px;
+        padding: 1rem 1.3rem;
+        text-align: center;
+      }
+      .visit-photo-badge .stat-number {
+        font-size: 2rem;
+      }
+      .visit-photo-badge .stat-label {
+        font-size: 0.6rem;
+      }
+
+      /* Info sections */
+      .info-section {
+        margin-bottom: 2.8rem;
+      }
+      .info-section:last-child {
+        margin-bottom: 0;
+      }
+      .info-section-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .info-section-label::after {
+        content: "";
+        display: block;
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+        max-width: 60px;
+      }
+      .info-section h2 {
+        font-family: var(--ff-d);
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.8rem;
+        letter-spacing: -0.01em;
+      }
+      .info-section p {
+        font-size: 0.9rem;
+        color: var(--text-dim);
+        line-height: 1.85;
+      }
+      .info-section a {
+        color: var(--gold);
+        transition: opacity 0.2s;
+      }
+      .info-section a:hover {
+        opacity: 0.75;
+      }
+      .info-section strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .address-block {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 1.2rem 1.4rem;
+        font-size: 0.9rem;
+        color: var(--text-dim);
+        line-height: 1.9;
+        margin-top: 0.8rem;
+      }
+      .address-block strong {
+        display: block;
+        color: var(--text);
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .map-link-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 1rem;
+        padding: 0.68rem 1.4rem;
+        border-radius: 6px;
+        border: 1px solid var(--border-h);
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 500;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .map-link-btn:hover {
+        background: var(--border);
+        border-color: var(--gold);
+      }
+
+      .phone-display {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 0.8rem;
+      }
+      .phone-display a {
+        font-family: var(--ff-d);
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: -0.01em;
+        transition: opacity 0.2s;
+      }
+      .phone-display a:hover {
+        opacity: 0.75;
+      }
+
+      /* Hours with today highlight */
+      .hours-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem 0;
+        margin-top: 0.8rem;
+      }
+      .hours-row {
+        display: contents;
+      }
+      .hours-day,
+      .hours-time {
+        padding: 0.52rem 0;
+        font-size: 0.88rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .hours-day {
+        color: var(--text);
+        font-weight: 500;
+      }
+      .hours-time {
+        color: var(--text-dim);
+        text-align: right;
+      }
+      .hours-row.today .hours-day,
+      .hours-row.today .hours-time {
+        color: var(--gold);
+      }
+      .hours-row.today .hours-day::after {
+        content: " ← Today";
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        font-weight: 400;
+        margin-left: 6px;
+      }
+
+      /* Bottom 3 cards */
+      .bottom-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border-top: 1px solid var(--border);
+      }
+      .bcard {
+        padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
+        border-right: 1px solid var(--border);
+        transition: background 0.25s;
+      }
+      .bcard:last-child {
+        border-right: none;
+      }
+      .bcard:hover {
+        background: var(--surface);
+      }
+      .bcard-icon {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+        display: block;
+      }
+      .bcard h3 {
+        font-family: var(--ff-d);
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.6rem;
+      }
+      .bcard p {
+        font-size: 0.875rem;
+        color: var(--text-dim);
+        line-height: 1.75;
+      }
+      .bcard a {
+        color: var(--gold);
+      }
+
+      @media (max-width: 900px) {
+        .visit-body {
+          grid-template-columns: 1fr;
+        }
+        .visit-photo {
+          min-height: 300px;
+        }
+        .visit-info {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .bottom-cards {
+          grid-template-columns: 1fr;
+        }
+        .bcard {
+          border-right: none;
+          border-bottom: 1px solid var(--border);
+        }
+        .bcard:last-child {
+          border-bottom: none;
+        }
+        .hours-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ======================== NAV ======================== -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="logo" aria-label="A1 Mini Market — Home">
+          <div class="logo-mark">
+            <img src="images/A1-logo.jpg" alt="A1 Mini Market logo" />
+          </div>
+          <div class="logo-text">
+            A1 Mini Market
+            <small>Specialty Imports · Winnipeg</small>
+          </div>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="departments.html">The Collection</a></li>
+          <li><a href="contact.html" class="active">Visit Us</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="icon-btn hamburger"
+            id="menu-btn"
+            aria-label="Open menu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-label="Mobile navigation">
+      <button class="close-btn" id="close-menu" aria-label="Close menu">
+        ✕
+      </button>
+      <a href="index.html">Home</a>
+      <a href="departments.html">The Collection</a>
+      <a href="contact.html" class="active">Visit Us</a>
+    </div>
+
+    <!-- ======================== HERO ======================== -->
+    <div class="visit-hero">
+      <img
+        src="images/asian-aisle.jpg"
+        alt="Inside A1 Mini Market — Asian specialty aisle" />
+      <div class="visit-hero-overlay">
+        <div class="visit-hero-text">
+          <div class="eyebrow left">Come See Us</div>
+          <h1>Find <em>Us.</em></h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================== MAIN BODY ======================== -->
+    <div class="visit-body">
+      <!-- Info column -->
+      <div class="visit-info reveal">
+        <div class="info-section">
+          <div class="info-section-label">Our Location</div>
+          <h2>2835 Pembina Hwy</h2>
+          <div class="address-block">
+            <strong>A1 Mini Market</strong>
+            2835 Pembina Hwy, Unit 5<br />
+            Winnipeg, MB &nbsp; R3T 4Z8<br />
+            <br />
+            Located in the Pembina Crossings shopping centre,<br />south of
+            Grant Ave. Free parking available.
+          </div>
+          <a
+            class="map-link-btn"
+            href="https://maps.google.com/?q=2835+Pembina+Hwy+Unit+5+Winnipeg+MB"
+            target="_blank"
+            rel="noopener noreferrer">
+            Open in Google Maps ↗
+          </a>
+        </div>
+
+        <div class="info-section">
+          <div class="info-section-label">Store Hours</div>
+          <h2>Open 7 Days a Week</h2>
+          <div class="hours-grid" role="table" aria-label="Store hours">
+            <div class="hours-row" role="row">
+              <span class="hours-day" role="cell">Monday</span>
+              <span class="hours-time" role="cell">10:00 am – 8:00 pm</span>
+            </div>
+            <div class="hours-row" role="row">
+              <span class="hours-day" role="cell">Tuesday</span>
+              <span class="hours-time" role="cell">10:00 am – 8:00 pm</span>
+            </div>
+            <div class="hours-row" role="row">
+              <span class="hours-day" role="cell">Wednesday</span>
+              <span class="hours-time" role="cell">10:00 am – 8:00 pm</span>
+            </div>
+            <div class="hours-row" role="row">
+              <span class="hours-day" role="cell">Thursday</span>
+              <span class="hours-time" role="cell">10:00 am – 8:00 pm</span>
+            </div>
+            <div class="hours-row" role="row">
+              <span class="hours-day" role="cell">Friday</span>
+              <span class="hours-time" role="cell">10:00 am – 8:00 pm</span>
+            </div>
+            <div class="hours-row" role="row">
+              <span class="hours-day" role="cell">Saturday</span>
+              <span class="hours-time" role="cell">10:00 am – 8:00 pm</span>
+            </div>
+            <div class="hours-row" role="row">
+              <span class="hours-day" role="cell">Sunday</span>
+              <span class="hours-time" role="cell">10:00 am – 7:00 pm</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <div class="info-section-label">Phone</div>
+          <h2>Give Us a Call</h2>
+          <p>
+            Have a question about a product? Looking for something specific?
+            We're happy to help.
+          </p>
+          <div class="phone-display">
+            <a href="tel:2045550198" aria-label="Call A1 Mini Market"
+              >(204) 555-0198</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Photo column -->
+      <div class="visit-photo reveal reveal-d2">
+        <img
+          src="images/pantry.jpg"
+          alt="A1 Mini Market pantry and spice section" />
+        <div class="visit-photo-overlay"></div>
+        <div class="visit-photo-badge">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Products in Store</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======================== BOTTOM CARDS ======================== -->
+    <div class="bottom-cards">
+      <div class="bcard reveal">
+        <span class="bcard-icon" aria-hidden="true">📍</span>
+        <h3>Easy to Find</h3>
+        <p>
+          We're in the Pembina Crossings shopping centre on Pembina Hwy, south
+          of Grant Ave in Winnipeg. Free surface parking right in front.
+        </p>
+      </div>
+
+      <div class="bcard reveal reveal-d2">
+        <span class="bcard-icon" aria-hidden="true">🛍️</span>
+        <h3>Walk-In Welcome</h3>
+        <p>
+          No appointment, no pre-order required for most items. Browse at your
+          own pace. Our staff are on the floor and happy to help you find
+          anything.
+        </p>
+      </div>
+
+      <div class="bcard reveal reveal-d3">
+        <span class="bcard-icon" aria-hidden="true">📦</span>
+        <h3>Looking for Something Specific?</h3>
+        <p>
+          If we don't have it on the shelf, call us at
+          <a href="tel:2045550198">(204) 555-0198</a>. We may be able to source
+          it or tell you when it's back in stock.
+        </p>
+      </div>
+    </div>
+
+    <!-- ======================== FOOTER ======================== -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-mark">
+              <img src="images/A1-logo.jpg" alt="A1 Mini Market" />
+            </div>
+            <div class="footer-logo-text">
+              A1 Mini Market<small>Specialty Imports</small>
+            </div>
+          </div>
+          <p>
+            Curating the world's most extraordinary flavors for Winnipeg
+            kitchens.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="departments.html">The Collection</a></li>
+            <li><a href="contact.html">Visit Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Location</h4>
+          <ul>
+            <li>2835 Pembina Hwy, Unit 5</li>
+            <li>Winnipeg, MB R3T 4Z8</li>
+            <li>
+              <a href="tel:2045550198" style="color: var(--gold)"
+                >(204) 555-0198</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hours</h4>
+          <ul>
+            <li>Mon – Sat: 10am – 8pm</li>
+            <li>Sunday: 10am – 7pm</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <span>© 2026 A1 Mini Market.</span>
+        <span>Specialty Imports · Winnipeg, MB</span>
+      </div>
+    </footer>
+
+    <script src="script/script.js"></script>
+  </body>
+</html>
