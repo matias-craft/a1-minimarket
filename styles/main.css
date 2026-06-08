@@ -226,19 +226,17 @@ body::after {
   font-size: 1.6rem;
   cursor: pointer;
 }
-/* This media query shows the hamburger... */
+
 @media (max-width: 768px) {
   .nav-links {
     display: none;
   }
   .hamburger {
     display: flex !important;
-  } /* !important needed because... */
+  }
 }
-
-/* ...but this rule comes AFTER and sets display: none globally */
 .hamburger {
-  display: none; /* ← this overrides the media query above */
+  display: none;
 }
 
 .eyebrow {
@@ -440,4 +438,150 @@ footer {
 }
 .footer-bottom span {
   color: var(--gold);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE FIXES
+   ============================================ */
+
+/* Reveal animation — disable on mobile to avoid flicker */
+@media (max-width: 768px) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* --- Layout & Spacing --- */
+@media (max-width: 768px) {
+  .section {
+    padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 1.5rem);
+  }
+}
+
+/* --- Hero --- */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 1.25rem clamp(2rem, 8vw, 3rem);
+  }
+  .hero-ctas {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-scroll {
+    display: none;
+  }
+}
+
+/* --- Cards grid (home page) --- */
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .dept-card-img {
+    height: 200px;
+  }
+}
+
+/* --- Feature split (home page) --- */
+@media (max-width: 768px) {
+  .feature {
+    grid-template-columns: 1fr;
+  }
+  .feature.flip {
+    direction: ltr;
+  }
+  .feature-media {
+    min-height: 260px;
+  }
+  .feature-body {
+    padding: 2rem 1.25rem;
+  }
+  .feature-body .section-title,
+  .feature-body p {
+    max-width: 100%;
+  }
+}
+
+/* --- Departments page: aisle grid --- */
+@media (max-width: 768px) {
+  .aisle-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  .aisle-card.large {
+    grid-column: span 1 !important;
+    aspect-ratio: 4 / 3;
+  }
+  .aisle-card.large .aisle-card-body {
+    padding: 1.5rem 1.25rem;
+  }
+  .aisle-card.large .aisle-card-body h2 {
+    font-size: 1.7rem;
+  }
+  .aisle-card-body h2 {
+    font-size: 1.45rem;
+  }
+}
+
+/* --- Departments page: intro split --- */
+@media (max-width: 768px) {
+  .intro-split {
+    grid-template-columns: 1fr !important;
+  }
+  .intro-image {
+    min-height: 240px;
+    order: -1;
+  }
+  .intro-text {
+    padding: 2rem 1.25rem;
+  }
+}
+
+/* --- Departments page: section divider --- */
+@media (max-width: 768px) {
+  .section-divider {
+    padding: 2rem 1rem 0;
+  }
+}
+
+/* --- Departments page: showcase caption --- */
+@media (max-width: 768px) {
+  .showcase-caption h2 {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+  .showcase-caption p {
+    font-size: 0.875rem;
+  }
+}
+
+/* --- Footer --- */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .footer-brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .footer-brand {
+    grid-column: span 1;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.4rem;
+  }
 }
