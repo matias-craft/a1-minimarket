@@ -9,6 +9,7 @@
   --border: rgba(200, 150, 80, 0.15);
   --border-h: rgba(200, 150, 80, 0.35);
   --gold: #d49b55;
+  --gold-text: #141210;
   --gold-lt: #eabb78;
   --gold-glow: rgba(212, 155, 85, 0.2);
   --text: #f2eadf;
@@ -34,6 +35,7 @@
   --border: rgba(145, 108, 60, 0.22);
   --border-h: rgba(145, 108, 60, 0.45);
   --gold: #9b621e;
+  --gold-text: #f5f2eb;
   --gold-lt: #b87b2e;
   --gold-glow: rgba(155, 98, 30, 0.12);
   --text: #3a3126;
