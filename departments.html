@@ -302,6 +302,26 @@
     .aisle-card.large .aisle-card-body h2 {
       font-size: 2.4rem;
     }
+
+    @media (max-width: 768px) {
+      .aisle-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .aisle-card.large {
+        grid-column: span 1;
+        aspect-ratio: 4/3;
+      }
+      .aisle-card.large .aisle-card-body {
+        padding: 1.5rem 1.25rem;
+      }
+      .aisle-card.large .aisle-card-body h2 {
+        font-size: 1.7rem;
+      }
+      .aisle-card-body h2 {
+        font-size: 1.45rem;
+      }
+    }
   </style>
   <script>
     if (localStorage.getItem('theme') === 'light') {
