@@ -45,17 +45,17 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(to top,
-          rgba(10, 7, 4, 0.97) 0%,
-          rgba(10, 7, 4, 0.65) 40%,
-          rgba(10, 7, 4, 0.25) 70%,
-          rgba(10, 7, 4, 0.1) 100%);
+          rgba(var(--bg-rgb), 0.97) 0%,
+          rgba(var(--bg-rgb), 0.65) 40%,
+          rgba(var(--bg-rgb), 0.25) 70%,
+          rgba(var(--bg-rgb), 0.1) 100%);
     }
 
     .hero-side-grad {
       position: absolute;
       inset: 0;
       background: linear-gradient(to right,
-          rgba(10, 7, 4, 0.55) 0%,
+          rgba(var(--bg-rgb), 0.55) 0%,
           transparent 50%);
     }
 
@@ -276,7 +276,7 @@
       position: absolute;
       top: 1rem;
       left: 1rem;
-      background: rgba(10, 7, 4, 0.7);
+      background: rgba(var(--bg-rgb), 0.7);
       backdrop-filter: blur(8px);
       border: 1px solid var(--border);
       border-radius: 100px;
@@ -367,7 +367,7 @@
     .feature-media-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(10, 7, 4, 0.32);
+      background: rgba(var(--bg-rgb), 0.32);
     }
 
     .feature-body {
@@ -396,6 +396,11 @@
       align-self: flex-start;
     }
   </style>
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
 </head>
 
 <body>
@@ -419,6 +424,9 @@
         </ul>
 
         <div class="nav-actions">
+          <button class="icon-btn theme-toggle" id="theme-btn" aria-label="Toggle light/dark mode">
+            &#9728;&#65039;
+          </button>
           <button class="icon-btn hamburger" id="menu-btn" aria-label="Open menu" aria-expanded="false">
             &#9776;
           </button>
