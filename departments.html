@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A1 Mini Market | The Collection — Specialty Aisles</title>
+    <meta
+      name="description"
+      content="Explore A1 Mini Market's four specialty aisles: Latin Heritage, Far East Pantry, Frozen Discoveries, and The Spice Vault. Authentic imported ingredients in Winnipeg." />
+    <link rel="stylesheet" href="styles/main.css" />
+    <style>
+      /* Page-specific overrides */
+      .intro-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .intro-text {
+        padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4.5rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .intro-text .eyebrow {
+        margin-bottom: 1.2rem;
+      }
+      .intro-text .section-title {
+        max-width: 500px;
+      }
+      .intro-text p {
+        margin-top: 1.2rem;
+        max-width: 400px;
+      }
+      .intro-image {
+        position: relative;
+        overflow: hidden;
+        min-height: 420px;
+      }
+      .intro-image img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: hero-zoom 14s ease-out forwards;
+      }
+      .intro-image-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to left,
+          transparent 50%,
+          rgba(10, 7, 4, 0.3) 100%
+        );
+      }
+
+      /* Section dividers */
+      .section-divider {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 3.5rem clamp(1.25rem, 4vw, 3rem) 0;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .section-divider h2 {
+        font-family: var(--ff-d);
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        font-weight: 300;
+        color: var(--text-dim);
+        white-space: nowrap;
+        letter-spacing: 0.01em;
+      }
+      .section-divider h2 em {
+        font-style: italic;
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .section-divider hr {
+        flex: 1;
+        border: none;
+        border-top: 1px solid var(--border);
+      }
+
+      /* Product tag pills */
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+      .tag {
+        background: rgba(200, 136, 60, 0.08);
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        padding: 0.28rem 0.85rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        font-weight: 400;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .dept-card:hover .tag {
+        border-color: var(--border-h);
+      }
+
+      /* Full-bleed aisle showcase */
+      .showcase {
+        position: relative;
+        overflow: hidden;
+        height: clamp(320px, 45vw, 560px);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .showcase img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 35%;
+      }
+      .showcase-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(10, 7, 4, 0.1) 0%,
+          rgba(10, 7, 4, 0.55) 60%,
+          rgba(10, 7, 4, 0.9) 100%
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem);
+      }
+      .showcase-caption {
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      .showcase-caption h2 {
+        font-family: var(--ff-d);
+        font-size: clamp(2.2rem, 6vw, 4.5rem);
+        font-weight: 300;
+        color: var(--text);
+        letter-spacing: -0.015em;
+        line-height: 1;
+      }
+      .showcase-caption h2 em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .showcase-caption p {
+        margin-top: 0.75rem;
+        max-width: 520px;
+        font-size: 1rem;
+        color: rgba(237, 224, 204, 0.7);
+        line-height: 1.75;
+      }
+
+      @media (max-width: 768px) {
+        .intro-split {
+          grid-template-columns: 1fr;
+        }
+        .intro-image {
+          min-height: 280px;
+        }
+      }
+      .aisle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.aisle-card {
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4/3;
+  border: 1px solid var(--border);
+  transition:
+    border-color 0.25s,
+    transform 0.4s var(--ease);
+  cursor: default;
+}
+.aisle-card:hover {
+  border-color: var(--border-h);
+  transform: translateY(-5px);
+}
+.aisle-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+}
+.aisle-card:hover img {
+  transform: scale(1.06);
+}
+.aisle-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 7, 4, 0.92) 0%,
+    rgba(10, 7, 4, 0.5) 45%,
+    rgba(10, 7, 4, 0.1) 100%
+  );
+}
+.aisle-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 2rem 2rem;
+  z-index: 1;
+}
+.aisle-card-tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.aisle-card-body h2 {
+  font-family: var(--ff-d);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.aisle-card-body p {
+  font-size: 0.85rem;
+  color: rgba(237, 224, 204, 0.75);
+  line-height: 1.65;
+  margin-top: 0.6rem;
+  max-width: 380px;
+}
+.aisle-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(200, 136, 60, 0.35);
+  padding-bottom: 3px;
+  transition:
+    gap 0.2s,
+    border-color 0.2s;
+}
+.aisle-card:hover .aisle-card-link {
+  gap: 10px;
+  border-color: var(--gold);
+}
+.aisle-card-link::after {
+  content: "→";
+}
+.aisle-card.large {
+  grid-column: span 2;
+  aspect-ratio: 16/6;
+}
+.aisle-card.large .aisle-card-body {
+  padding: 2.5rem 3rem;
+}
+.aisle-card.large .aisle-card-body h2 {
+  font-size: 2.4rem;
+}
+
+
+    </style>
+  </head>
+  <body><nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="index.html" class="logo" aria-label="A1 Mini Market — Home">
+          <div class="logo-mark">
+            <img src="images/A1-logo.jpg" alt="A1 Mini Market logo" />
+          </div>
+          <div class="logo-text">
+            A1 Mini Market
+            <small>Specialty Imports · Winnipeg</small>
+          </div>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="departments.html" class="active">The Collection</a></li>
+          <li><a href="contact.html">Visit Us</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button
+            class="icon-btn hamburger"
+            id="menu-btn"
+            aria-label="Open menu">
+            ☰
+          </button>
+        </div>
+      </div>
+      <div
+      class="mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-label="Mobile navigation">
+      <button class="close-btn" id="close-menu" aria-label="Close menu">
+        ✕
+      </button>
+      <a href="index.html">Home</a>
+      <a href="departments.html" class="active">The Collection</a>
+      <a href="contact.html">Visit Us</a>
+    </div>
+    </nav>
+    <main>
+      <div class="intro-split" style="margin-top: var(--nav-h)">
+      <div class="intro-text reveal">
+        <div class="eyebrow left">Our Specialty Aisles</div>
+        <h1 class="section-title">The <em>Collection</em></h1>
+        <p class="body-lg">
+          Four curated aisles. Hundreds of rare, authentic ingredients sourced
+          from Latin America and across Asia. The ones your recipes actually
+          call for.
+        </p>
+        <p class="body-sm" style="margin-top: 0.75rem">
+          We spend time finding what others don't carry — so you can cook the
+          way the recipe was intended.
+        </p>
+      </div>
+      <div class="intro-image">
+        <img
+          src="images/asian-aisle.jpg"
+          alt="Asian ingredients aisle at A1 Mini Market" />
+        <div class="intro-image-overlay"></div>
+      </div>
+    </div>
+<section class="section">
+      <div class="section-inner">
+        <div class="section-divider reveal">
+          <h2>All <em>Four Aisles</em></h2>
+          <hr />
+        </div>
+
+        <div style="padding-top: 2.5rem">
+          <div class="aisle-grid">
+            <!-- Latin Quarter -->
+            <article class="aisle-card reveal reveal-d1">
+              <img
+                src="images/latin-aisle.jpg"
+                alt="Latin American specialty aisle — chiles, masa, yerba mate" />
+              <div class="aisle-card-overlay"></div>
+              <div class="aisle-card-body">
+                <div class="aisle-card-tag">Latin America</div>
+                <h2>The Latin Quarter</h2>
+                <p>
+                  Imported snacks, yerba mate, authentic ingredients for
+                  regional classics. Dried chiles, masa harina, achiote,
+                  piloncillo, dulce de leche, and more.
+                </p>
+                <div class="aisle-card-link">Explore</div>
+              </div>
+            </article>
+
+            <!-- Far East Pantry -->
+            <article class="aisle-card reveal reveal-d2">
+              <img
+                src="images/asian-aisle.jpg"
+                alt="East Asian pantry — soy sauce, miso, ramen, teas" />
+              <div class="aisle-card-overlay"></div>
+              <div class="aisle-card-body">
+                <div class="aisle-card-tag">East Asia</div>
+                <h2>Far East Pantry</h2>
+                <p>
+                  High-end soy sauces, miso, specialty ramen, rare teas, sesame
+                  oils, and artisan condiments from Japan, Korea, Thailand, and
+                  beyond.
+                </p>
+                <div class="aisle-card-link">Explore</div>
+              </div>
+            </article>
+
+            <!-- Frozen Discoveries — large -->
+            <article class="aisle-card large reveal">
+              <img
+                src="images/global-frozen.jpg"
+                alt="Frozen authentic imports — dumplings, empanadas, tropical fruit" />
+              <div class="aisle-card-overlay"></div>
+              <div class="aisle-card-body">
+                <div class="aisle-card-tag">Frozen &amp; Fresh</div>
+                <h2>Frozen Discoveries</h2>
+                <p>
+                  Authentic dumplings, empanadas, tropical fruit pulps for
+                  smoothies, tamales, and ready-to-cook imports that taste
+                  exactly like the real thing.
+                </p>
+                <div class="aisle-card-link">Explore</div>
+              </div>
+            </article>
+
+            <!-- Spice Vault — large -->
+            <article class="aisle-card large reveal">
+              <img
+                src="images/pantry.jpg"
+                alt="The Spice Vault — hand-selected spices from Asia and South America" />
+              <div class="aisle-card-overlay"></div>
+              <div class="aisle-card-body">
+                <div class="aisle-card-tag">Pantry &amp; Spices</div>
+                <h2>The Spice Vault</h2>
+                <p>
+                  Hand-selected spices from the heart of Asia and South America.
+                  Smoked paprikas, whole dried chiles, lemongrass, star anise,
+                  sumac, aji amarillo, and more.
+                </p>
+                <div class="aisle-card-link">Explore</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="showcase reveal">
+      <img src="images/latin-aisle.jpg" alt="A1 Mini Market specialty aisle" />
+      <div class="showcase-overlay">
+        <div class="showcase-caption">
+          <h2>
+            We stock the items your<br />favourite recipes
+            <em>assume you can find.</em>
+          </h2>
+          <p>
+            The ones every local grocery doesn't carry. Come in — you'll find
+            what you've been looking for.
+          </p>
+        </div>
+      </div>
+    </div>
+<section class="section">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="eyebrow left" style="margin-bottom: 1rem">
+            What to Expect
+          </div>
+          <h2 class="section-title" style="max-width: 560px">
+            Curated with care, <em>not compromise</em>
+          </h2>
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+          ">
+          <div class="dept-card reveal reveal-d1" style="cursor: default">
+            <div class="dept-card-body" style="padding-top: 2rem">
+              <div
+                style="
+                  font-family: var(--ff-d);
+                  font-size: 2.2rem;
+                  margin-bottom: 0.75rem;
+                  color: var(--gold);
+                ">
+                ①
+              </div>
+              <h3>Authentically Sourced</h3>
+              <p>
+                Every product is the real thing — not an approximation. Imported
+                directly, not reformulated for Canadian shelves.
+              </p>
+            </div>
+          </div>
+
+          <div class="dept-card reveal reveal-d2" style="cursor: default">
+            <div class="dept-card-body" style="padding-top: 2rem">
+              <div
+                style="
+                  font-family: var(--ff-d);
+                  font-size: 2.2rem;
+                  margin-bottom: 0.75rem;
+                  color: var(--gold);
+                ">
+                &#9313;
+              </div>
+              <h3>Hard to Find</h3>
+              <p>
+                If you've searched three other stores with no luck, there's a
+                good chance we carry it. That's why we're here.
+              </p>
+            </div>
+          </div>
+
+          <div class="dept-card reveal reveal-d3" style="cursor: default">
+            <div class="dept-card-body" style="padding-top: 2rem">
+              <div
+                style="
+                  font-family: var(--ff-d);
+                  font-size: 2.2rem;
+                  margin-bottom: 0.75rem;
+                  color: var(--gold);
+                ">
+                ③
+              </div>
+              <h3>Knowledgeable Staff</h3>
+              <p>
+                Not sure which chile to pick? Which miso works for your ramen?
+                Ask us — we know our inventory deeply.
+              </p>
+            </div>
+          </div>
+
+          <div class="dept-card reveal reveal-d4" style="cursor: default">
+            <div class="dept-card-body" style="padding-top: 2rem">
+              <div
+                style="
+                  font-family: var(--ff-d);
+                  font-size: 2.2rem;
+                  margin-bottom: 0.75rem;
+                  color: var(--gold);
+                ">
+                ④
+              </div>
+              <h3>Always Stocked</h3>
+              <p>
+                We maintain consistent inventory so your regular items are
+                always on the shelf, not just occasionally in stock.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <div class="footer-logo-mark">
+                <img src="images/A1-logo.jpg" alt="A1 Mini Market" />
+              </div>
+              <div class="footer-logo-text">
+                A1 Mini Market<small>Specialty Imports</small>
+              </div>
+            </div>
+            <p>
+              Curating the world's most extraordinary flavors for Winnipeg
+              kitchens.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigate</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="departments.html">The Collection</a></li>
+              <li><a href="contact.html">Visit Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Location</h4>
+            <ul>
+              <li>2835 Pembina Hwy, Unit 5</li>
+              <li>Winnipeg, MB R3T 4Z8</li>
+              <li>
+                <a href="tel:2045550198" style="color: var(--gold)"
+                  >(204) 555-0198</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Hours</h4>
+            <ul>
+              <li>Mon – Sat: 10am – 8pm</li>
+              <li>Sunday: 10am – 7pm</li>
+            </ul>
+          </div>
+        </div>
+        <hr class="footer-divider" />
+        <div class="footer-bottom">
+          <span>© 2026 A1 Mini Market.</span>
+          <span>Specialty Imports · Winnipeg, MB</span>
+        </div>
+      </footer>
+      <script src="script.js"></script>
+    </body>
+</html>

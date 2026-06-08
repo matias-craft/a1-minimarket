@@ -226,17 +226,19 @@ body::after {
   font-size: 1.6rem;
   cursor: pointer;
 }
-
+/* This media query shows the hamburger... */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
   }
   .hamburger {
     display: flex !important;
-  }
+  } /* !important needed because... */
 }
+
+/* ...but this rule comes AFTER and sets display: none globally */
 .hamburger {
-  display: none;
+  display: none; /* ← this overrides the media query above */
 }
 
 .eyebrow {
