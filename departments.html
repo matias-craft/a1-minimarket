@@ -331,6 +331,7 @@
 </head>
 
 <body>
+  <header>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="logo" aria-label="A1 Mini Market — Home">
@@ -367,12 +368,12 @@
     <a href="departments.html" class="active">The Collection</a>
     <a href="contact.html">Visit Us</a>
   </div>
-  </nav>
+  </header>
   <main>
-    <div class="intro-split" style="margin-top: var(--nav-h)">
+    <section class="intro-split" style="margin-top: var(--nav-h)" aria-labelledby="collection-title">
       <div class="intro-text reveal">
         <div class="eyebrow left">Our Specialty Aisles</div>
-        <h1 class="section-title">The <em>Collection</em></h1>
+        <h1 class="section-title" id="collection-title">The <em>Collection</em></h1>
         <p class="body-lg">
           Four curated aisles. Hundreds of rare, authentic ingredients sourced
           from Latin America and across Asia. The ones your recipes actually
@@ -387,7 +388,7 @@
         <img src="images/collection-intro.jpg" alt="Specialty ingredients collection at A1 Mini Market" />
         <div class="intro-image-overlay"></div>
       </div>
-    </div>
+    </section>
     <section class="section">
       <div class="section-inner">
         <div class="section-divider reveal">
@@ -398,7 +399,7 @@
         <div style="padding-top: 2.5rem">
           <div class="aisle-grid">
             <!-- Latin Quarter -->
-            <article class="aisle-card reveal reveal-d1">
+            <div class="aisle-card reveal reveal-d1">
               <img src="images/latin-ingredients.jpg" alt="Latin American specialty aisle — chiles, masa, yerba mate" />
               <div class="aisle-card-overlay"></div>
               <div class="aisle-card-body">
@@ -409,12 +410,12 @@
                   regional classics. Dried chiles, masa harina, achiote,
                   piloncillo, dulce de leche, and more.
                 </p>
-                <div class="aisle-card-link">Explore</div>
+                <span class="aisle-card-link">Explore</span>
               </div>
-            </article>
+            </div>
 
             <!-- Far East Pantry -->
-            <article class="aisle-card reveal reveal-d2">
+            <div class="aisle-card reveal reveal-d2">
               <img src="images/asian-ingredients.jpg" alt="East Asian pantry — soy sauce, miso, ramen, teas" />
               <div class="aisle-card-overlay"></div>
               <div class="aisle-card-body">
@@ -425,12 +426,12 @@
                   oils, and artisan condiments from Japan, Korea, Thailand, and
                   beyond.
                 </p>
-                <div class="aisle-card-link">Explore</div>
+                <span class="aisle-card-link">Explore</span>
               </div>
-            </article>
+            </div>
 
             <!-- Frozen Discoveries — large -->
-            <article class="aisle-card large reveal">
+            <div class="aisle-card large reveal">
               <img src="images/frozen-food.jpg"
                 alt="Frozen authentic imports — dumplings, empanadas, tropical fruit" />
               <div class="aisle-card-overlay"></div>
@@ -442,12 +443,12 @@
                   smoothies, tamales, and ready-to-cook imports that taste
                   exactly like the real thing.
                 </p>
-                <div class="aisle-card-link">Explore</div>
+                <span class="aisle-card-link">Explore</span>
               </div>
-            </article>
+            </div>
 
             <!-- Spice Vault — large -->
-            <article class="aisle-card large reveal">
+            <div class="aisle-card large reveal">
               <img src="images/spice-collection.jpg" alt="The Spice Vault — hand-selected spices from Asia and South America" />
               <div class="aisle-card-overlay"></div>
               <div class="aisle-card-body">
@@ -458,14 +459,14 @@
                   Smoked paprikas, whole dried chiles, lemongrass, star anise,
                   sumac, aji amarillo, and more.
                 </p>
-                <div class="aisle-card-link">Explore</div>
+                <span class="aisle-card-link">Explore</span>
               </div>
-            </article>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <div class="showcase reveal">
+    <section class="showcase reveal" aria-label="Brand statement">
       <img src="images/showcase-market.jpg" alt="A1 Mini Market specialty aisle" />
       <div class="showcase-overlay">
         <div class="showcase-caption">
@@ -479,7 +480,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </section>
     <section class="section">
       <div class="section-inner">
         <div class="reveal">
@@ -571,6 +572,7 @@
         </div>
       </div>
     </section>
+  </main>
     <footer>
       <div class="footer-grid">
         <div class="footer-brand">
@@ -587,23 +589,25 @@
             kitchens.
           </p>
         </div>
-        <div class="footer-col">
+        <nav class="footer-col" aria-label="Footer navigation">
           <h4>Navigate</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="departments.html">The Collection</a></li>
             <li><a href="contact.html">Visit Us</a></li>
           </ul>
-        </div>
+        </nav>
         <div class="footer-col">
           <h4>Location</h4>
-          <ul>
-            <li>2835 Pembina Hwy, Unit 5</li>
-            <li>Winnipeg, MB R3T 4Z8</li>
-            <li>
-              <a href="tel:2045550198" style="color: var(--gold)">(204) 555-0198</a>
-            </li>
-          </ul>
+          <address>
+            <ul>
+              <li>2835 Pembina Hwy, Unit 5</li>
+              <li>Winnipeg, MB R3T 4Z8</li>
+              <li>
+                <a href="tel:2045550198" style="color: var(--gold)">(204) 555-0198</a>
+              </li>
+            </ul>
+          </address>
         </div>
         <div class="footer-col">
           <h4>Hours</h4>

@@ -330,6 +330,7 @@
     </script>
   </head>
   <body>
+    <header>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav-inner">
         <a href="index.html" class="logo" aria-label="A1 Mini Market — Home">
@@ -372,33 +373,36 @@
       <a href="departments.html">The Collection</a>
       <a href="contact.html" class="active">Visit Us</a>
     </div>
+    </header>
 
-    <div class="visit-hero">
+    <main>
+
+    <section class="visit-hero" aria-labelledby="visit-hero-title">
       <img
         src="images/showcase-market.jpg"
         alt="Inside A1 Mini Market &#8212; Asian specialty aisle" />
       <div class="visit-hero-overlay">
         <div class="visit-hero-text">
           <div class="eyebrow left">Come See Us</div>
-          <h1>Find <em>Us.</em></h1>
+          <h1 id="visit-hero-title">Find <em>Us.</em></h1>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="visit-body">
+    <section class="visit-body">
       <!-- Info column -->
       <div class="visit-info reveal">
         <div class="info-section">
           <div class="info-section-label">Our Location</div>
           <h2>2835 Pembina Hwy</h2>
-          <div class="address-block">
+          <address class="address-block">
             <strong>A1 Mini Market</strong>
             2835 Pembina Hwy, Unit 5<br />
             Winnipeg, MB &nbsp; R3T 4Z8<br />
             <br />
             Located in the Pembina Crossings shopping centre,<br />south of
             Grant Ave. Free parking available.
-          </div>
+          </address>
           <a
             class="map-link-btn"
             href="https://maps.google.com/?q=2835+Pembina+Hwy+Unit+5+Winnipeg+MB"
@@ -483,9 +487,9 @@
           <div class="stat-label">Products in Store</div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="bottom-cards">
+    <section class="bottom-cards" aria-label="Additional information">
       <div class="bcard reveal">
         <span class="bcard-icon" aria-hidden="true">&#128205;</span>
         <h3>Easy to Find</h3>
@@ -514,7 +518,8 @@
           it or tell you when it's back in stock.
         </p>
       </div>
-    </div>
+    </section>
+    </main>
 
     <footer>
       <div class="footer-grid">
@@ -532,25 +537,27 @@
             kitchens.
           </p>
         </div>
-        <div class="footer-col">
+        <nav class="footer-col" aria-label="Footer navigation">
           <h4>Navigate</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="departments.html">The Collection</a></li>
             <li><a href="contact.html">Visit Us</a></li>
           </ul>
-        </div>
+        </nav>
         <div class="footer-col">
           <h4>Location</h4>
-          <ul>
-            <li>2835 Pembina Hwy, Unit 5</li>
-            <li>Winnipeg, MB R3T 4Z8</li>
-            <li>
-              <a href="tel:2045550198" style="color: var(--gold)"
-                >(204) 555-0198</a
-              >
-            </li>
-          </ul>
+          <address>
+            <ul>
+              <li>2835 Pembina Hwy, Unit 5</li>
+              <li>Winnipeg, MB R3T 4Z8</li>
+              <li>
+                <a href="tel:2045550198" style="color: var(--gold)"
+                  >(204) 555-0198</a
+                >
+              </li>
+            </ul>
+          </address>
         </div>
         <div class="footer-col">
           <h4>Hours</h4>

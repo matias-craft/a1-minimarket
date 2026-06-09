@@ -75,6 +75,9 @@ button {
   cursor: pointer;
   font-family: var(--ff-b);
 }
+address {
+  font-style: normal;
+}
 
 /* Grain texture */
 body::after {
