@@ -1,3 +1,4 @@
+<!-- Collection Page displaying store departments and aisles -->
 <!doctype html>
 <html lang="en">
 
@@ -8,6 +9,7 @@
   <meta name="description"
     content="Explore A1 Mini Market's four specialty aisles: Latin Heritage, Far East Pantry, Frozen Discoveries, and The Spice Vault. Authentic imported ingredients in Winnipeg." />
   <link rel="stylesheet" href="styles/main.css" />
+  <!-- Page specific overrides and layouts -->
   <style>
     /* Page-specific overrides */
     .intro-split {
@@ -331,6 +333,7 @@
 </head>
 
 <body>
+<!-- Navigation header -->
   <header>
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
@@ -359,7 +362,7 @@
     </div>
   </nav>
 
-  <!-- Mobile menu -->
+  <!-- Mobile navigation overlay -->
   <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
     <button class="close-btn" id="close-menu" aria-label="Close menu">
       &#10005;
@@ -369,7 +372,10 @@
     <a href="contact.html">Visit Us</a>
   </div>
   </header>
+  
+  <!-- Main content area -->
   <main>
+    <!-- Introductory header section -->
     <section class="intro-split" style="margin-top: var(--nav-h)" aria-labelledby="collection-title">
       <div class="intro-text reveal">
         <div class="eyebrow left">Our Specialty Aisles</div>
@@ -389,6 +395,8 @@
         <div class="intro-image-overlay"></div>
       </div>
     </section>
+    
+    <!-- Collection categories grid section -->
     <section class="section">
       <div class="section-inner">
         <div class="section-divider reveal">
@@ -398,7 +406,7 @@
 
         <div style="padding-top: 2.5rem">
           <div class="aisle-grid">
-            <!-- Latin Quarter -->
+            <!-- Latin Quarter department card -->
             <div class="aisle-card reveal reveal-d1">
               <img src="images/latin-ingredients.jpg" alt="Latin American specialty aisle — chiles, masa, yerba mate" />
               <div class="aisle-card-overlay"></div>
@@ -414,7 +422,7 @@
               </div>
             </div>
 
-            <!-- Far East Pantry -->
+            <!-- Far East Pantry department card -->
             <div class="aisle-card reveal reveal-d2">
               <img src="images/asian-ingredients.jpg" alt="East Asian pantry — soy sauce, miso, ramen, teas" />
               <div class="aisle-card-overlay"></div>
@@ -430,7 +438,7 @@
               </div>
             </div>
 
-            <!-- Frozen Discoveries — large -->
+            <!-- Frozen Discoveries department card -->
             <div class="aisle-card large reveal">
               <img src="images/frozen-food.jpg"
                 alt="Frozen authentic imports — dumplings, empanadas, tropical fruit" />
@@ -447,7 +455,7 @@
               </div>
             </div>
 
-            <!-- Spice Vault — large -->
+            <!-- Spice Vault department card -->
             <div class="aisle-card large reveal">
               <img src="images/spice-collection.jpg" alt="The Spice Vault — hand-selected spices from Asia and South America" />
               <div class="aisle-card-overlay"></div>
@@ -466,6 +474,8 @@
         </div>
       </div>
     </section>
+    
+    <!-- Visual brand showcase layout -->
     <section class="showcase reveal" aria-label="Brand statement">
       <img src="images/showcase-market.jpg" alt="A1 Mini Market specialty aisle" />
       <div class="showcase-overlay">
@@ -572,58 +582,60 @@
         </div>
       </div>
     </section>
-  </main>
-    <footer>
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo">
-            <div class="footer-logo-mark">
-              <img src="images/A1-logo.jpg" alt="A1 Mini Market" />
-            </div>
-            <div class="footer-logo-text">
-              A1 Mini Market<small>Specialty Imports</small>
-            </div>
+  <!-- Site footer with branding, hours, location, and navigation links -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-mark">
+            <img src="images/A1-logo.jpg" alt="A1 Mini Market" />
           </div>
-          <p>
-            Curating the world's most extraordinary flavors for Winnipeg
-            kitchens.
-          </p>
+          <div class="footer-logo-text">
+            A1 Mini Market<small>Specialty Imports</small>
+          </div>
         </div>
-        <nav class="footer-col" aria-label="Footer navigation">
-          <h4>Navigate</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="departments.html">The Collection</a></li>
-            <li><a href="contact.html">Visit Us</a></li>
-          </ul>
-        </nav>
-        <div class="footer-col">
-          <h4>Location</h4>
-          <address>
-            <ul>
-              <li>2835 Pembina Hwy, Unit 5</li>
-              <li>Winnipeg, MB R3T 4Z8</li>
-              <li>
-                <a href="tel:2045550198" style="color: var(--gold)">(204) 555-0198</a>
-              </li>
-            </ul>
-          </address>
-        </div>
-        <div class="footer-col">
-          <h4>Hours</h4>
-          <ul>
-            <li>Mon &#8211; Sat: 10am &#8211; 8pm</li>
-            <li>Sunday: 10am &#8211; 7pm</li>
-          </ul>
-        </div>
+        <p>
+          Curating the world's most extraordinary flavors for Winnipeg
+          kitchens.
+        </p>
       </div>
-      <hr class="footer-divider" />
-      <div class="footer-bottom">
-        <span>&#169; 2026 A1 Mini Market.</span>
-        <span>Specialty Imports &#183; Winnipeg, MB</span>
+      <nav class="footer-col" aria-label="Footer navigation">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="departments.html">The Collection</a></li>
+          <li><a href="contact.html">Visit Us</a></li>
+        </ul>
+      </nav>
+      <div class="footer-col">
+        <h4>Location</h4>
+        <address>
+          <ul>
+            <li>2835 Pembina Hwy, Unit 5</li>
+            <li>Winnipeg, MB R3T 4Z8</li>
+            <li>
+              <a href="tel:2045550198" style="color: var(--gold)">(204) 555-0198</a>
+            </li>
+          </ul>
+        </address>
       </div>
-    </footer>
-    <script src="script/script.js"></script>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul>
+          <li>Mon &#8211; Sat: 10am &#8211; 8pm</li>
+          <li>Sunday: 10am &#8211; 7pm</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>&#169; 2026 A1 Mini Market.</span>
+      <span>Specialty Imports &#183; Winnipeg, MB</span>
+    </div>
+  </footer>
+  
+  <!-- Core JavaScript files for interactions -->
+  <script src="script/script.js"></script>
 </body>
 
 </html>

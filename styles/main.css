@@ -1,5 +1,6 @@
+/* Global custom properties and theme variables */
 :root {
-  /* Rich, warm dark mode (reduces OLED glare/haloing) */
+  /* Rich warm dark mode palette */
   --bg-rgb: 20, 18, 16;
   --bg: #141210;
   --bg2: #1e1b18;
@@ -16,7 +17,7 @@
   --text-dim: #9b8d7c;
   --text-muted: #685c50;
   --red: #c94c3c;
-  /* Nav height and fonts stay same */
+  /* Navigation dimensions typography and layout speeds */
   --nav-h: 72px;
   --ff-d: "Cormorant Garamond", "Georgia", serif;
   --ff-b: "DM Sans", system-ui, sans-serif;
@@ -25,7 +26,7 @@
 }
 
 [data-theme="light"] {
-  /* Sophisticated, muted light mode (parchment/oatmeal to reduce brightness) */
+  /* Elegant light mode color adjustments */
   --bg-rgb: 245, 242, 235;
   --bg: #f5f2eb;
   --bg2: #ebe6dc;

@@ -1,4 +1,4 @@
-/* ---- Mobile Menu ---- */
+/* Logic to control opening and closing the mobile sidebar menu */
 const menuBtn = document.getElementById("menu-btn");
 const closeBtn = document.getElementById("close-menu");
 const mobileMenu = document.getElementById("mobile-menu");
@@ -22,7 +22,7 @@ if (closeBtn && mobileMenu) {
   });
 }
 
-/* ---- Theme Toggle ---- */
+/* Toggle light and dark theme mode on user click */
 const themeBtn = document.getElementById("theme-btn");
 if (themeBtn) {
   // Set initial icon based on current theme

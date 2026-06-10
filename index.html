@@ -1,3 +1,4 @@
+<!-- Home Page structure and metadata -->
 <!doctype html>
 <html lang="en">
 
@@ -6,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>home page</title>
   <link rel="stylesheet" href="styles/main.css" />
+  <!-- Styling for hero layout and home page custom components -->
   <style>
     .hero {
       position: relative;
@@ -404,6 +406,7 @@
 </head>
 
 <body>
+<!-- Site header and navigation -->
   <header>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="nav-inner">
@@ -434,7 +437,7 @@
       </div>
     </nav>
 
-    <!-- Mobile menu -->
+    <!-- Mobile sidebar menu -->
     <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
       <button class="close-btn" id="close-menu" aria-label="Close menu">
         &#10005;
@@ -444,7 +447,10 @@
       <a href="contact.html">Visit Us</a>
     </div>
   </header>
+  
+  <!-- Main content area -->
   <main>
+    <!-- Hero showcase section -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
         <img src="images/hero-storefront.jpg" alt="" />
@@ -474,6 +480,8 @@
         <p>Scroll</p>
       </div>
     </section>
+    
+    <!-- Aisles teaser section -->
     <section class="section">
       <div class="section-inner">
         <div class="reveal">
@@ -529,6 +537,7 @@
       </div>
     </section>
   </main>
+  <!-- Site footer with branding, hours, location, and navigation links -->
   <footer>
     <div class="footer-grid">
       <div class="footer-brand">
@@ -584,6 +593,7 @@
     </div>
   </footer>
 
+  <!-- Core JavaScript files for interactions -->
   <script src="script/script.js"></script>
 </body>
 
